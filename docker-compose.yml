@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql8
+    command:
+      - "--default-authentication-plugin=mysql_native_password"
+      - "--max_connections=1000"
+      - "--innodb_buffer_pool_size=3G"
+      - "--general_log=1"
+      - "--general_log_file=/var/lib/mysql/general.log"
+    environment:
+      MYSQL_DATABASE: 'user_food'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'admin'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - "3306:3306"
+
